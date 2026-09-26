@@ -2,7 +2,6 @@
 #
 # Derived from the bash-completion 2.18.0-1 function _comp_command_offset()
 # with modifications for use as an auto-completion source.
-# Last Change:  2026-01-26
 # License:      GNU General Public License version 2 or later
 #
 # #######################################################################
