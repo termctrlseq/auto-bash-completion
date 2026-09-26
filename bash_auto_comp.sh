@@ -174,6 +174,10 @@ auto_complete() {
         mapfile -t COMPREPLY < <(compgen -f "$cur")
     fi
 
+    if ((${#COMPREPLY[@]} == 0)); then
+        mapfile -t COMPREPLY < <(mocword -l 50 -q "$COMP_LINE")
+    fi
+
     printf '%s\n' "$cur" "${COMPREPLY[@]}"
 }
 
