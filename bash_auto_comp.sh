@@ -170,12 +170,14 @@ auto_complete() {
     fi
     # End of a copied part
 
+    # Provides file and directory name completion
     if [[ -n $cur ]] && [[ ! $cur =~ '--help' ]] && ((${#COMPREPLY[@]} == 0)); then
         mapfile -t COMPREPLY < <(compgen -f "$cur")
     fi
 
+    # Provides english word completion
     if ((${#COMPREPLY[@]} == 0)) && command -v mocword >/dev/null 2>&1; then
-        mapfile -t COMPREPLY < <(mocword -l 50 -q "$COMP_LINE")
+        mapfile -t COMPREPLY < <(mocword --limit 100 --query "$COMP_LINE")
     fi
 
     printf '%s\n' "$cur" "${COMPREPLY[@]}"
