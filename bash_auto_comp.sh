@@ -170,7 +170,7 @@ auto_complete() {
     fi
     # End of a copied part
 
-    if [[ -n $cur ]] && ((${#COMPREPLY[@]} == 0)); then
+    if [[ -n $cur ]] && [[ ! $cur =~ '--help' ]] && ((${#COMPREPLY[@]} == 0)); then
         mapfile -t COMPREPLY < <(compgen -f "$cur")
     fi
 
